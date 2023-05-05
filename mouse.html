@@ -1,0 +1,46 @@
+<!-- 
+    
+    
+    here is a basic program using A-Frame to display the x, y, and z coordinates of the mouse as it moves across the screen:
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-entity id="cursor" cursor></a-entity>
+        <a-text id="coordinates" position="0 1.5 -3" color="#000"></a-text>
+        <a-camera>
+            <a-entity position="0 0 -3"></a-entity>
+        </a-camera>
+    </a-scene>
+
+    <!-- In this program, we are using the A-Frame library to create a virtual reality scene. 
+    We add a cursor entity to track the mouse position and a text entity to display the coordinates.
+
+We then add an event listener to the window object to track the mouse movement. 
+In the event handler function, we get the mouse position from the cursor entity and use the toFixed() method to round the values to two decimal places. 
+
+We then update the value attribute of the text entity with the current coordinates. -->
+    <script>
+        <!-- The querySelector() method returns the first element that matches a CSS selector.To 
+        return all matches (not only the first), use the querySelectorAll() instead. -->
+
+        var cursor = document.querySelector('#cursor');
+        var coordinatesText = document.querySelector('#coordinates');
+
+        window.addEventListener('mousemove', function (event) {
+            var mousePos = cursor.components.cursor.intersection.point;
+            var x = mousePos.x.toFixed(2); //rounding off the decimal values 
+            var y = mousePos.y.toFixed(2);
+            var z = mousePos.z.toFixed(2);
+            coordinatesText.setAttribute('value', 'x: ' + x + ' y: ' + y + ' z: ' + z);
+        });
+    </script>
+</body>
+
+</html>

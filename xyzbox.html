@@ -1,0 +1,43 @@
+<!-- here's a sample program in HTML that displays the x, y, and z axes using A-Frame --->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>A-Frame Axis Display</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+
+<body>
+
+    <!-- 
+        This program creates an A-Frame scene with three boxes, one for each axis. 
+        Each box is positioned and colored appropriately to represent the x, y, and z axes. 
+        The geometry attribute defines the size and shape of each box, while the material attribute defines its color. 
+        The position attribute sets the position of each box in 3D space.
+
+        You can view this program in a web browser with A-Frame support, like Mozilla Firefox or Google Chrome. 
+        When you load the page, you should see the x, y, and z axes displayed as red, green, and blue lines respectively. 
+    -->
+
+    <a-scene>
+        <!-- x-axis line -->
+        <a-entity geometry="primitive: box; depth: 0.1; height: 0.1; width: 5;" material="color: red;"
+            position="2.5 0 0">
+        </a-entity>
+
+        <!-- y-axis line -->
+        <a-entity geometry="primitive: box; depth: 0.1; height: 5; width: 0.1;" material="color: green;"
+            position="0 2.5 0">
+        </a-entity>
+
+        <!-- z-axis line -->
+        <a-entity geometry="primitive: box; depth: 5; height: 0.1; width: 0.1;" material="color: blue;"
+            position="0 0 2.5">
+        </a-entity>
+    </a-scene>
+</body>
+
+</html>
